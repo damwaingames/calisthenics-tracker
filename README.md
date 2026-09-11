@@ -8,9 +8,9 @@ style (no-build vanilla-JS PWA, `localStorage`, a `CONTEXT.md` glossary + ADRs, 
 harness) but deliberately *not* a domain model, because bodyweight training needs a different
 philosophy of what an exercise is and what progressive overload means.
 
-**Status: design phase.** Nothing runs yet. The domain is being worked out in
-[`CONTEXT.md`](CONTEXT.md) (draft glossary) and [`docs/design/open-questions.md`](docs/design/open-questions.md)
-before any code lands. Decisions get recorded as ADRs in [`docs/adr/`](docs/adr/) as they're made.
+**Status: domain settled, nothing built yet.** The model was grilled before any code: the
+glossary is [`CONTEXT.md`](CONTEXT.md) and the decisions are the ADRs in [`docs/adr/`](docs/adr/).
+Deferred ideas live as GitHub issues. Next up is the first vertical slice.
 
 ## The philosophy (why a separate app)
 

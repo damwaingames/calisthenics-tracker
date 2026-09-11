@@ -2,11 +2,12 @@
 
 Guidance for agents working in this repo. The calisthenics-tracker is (will be) a
 dependency-light, no-build-step vanilla-JS PWA, a sibling of `workout-tracker` with a
-deliberately different domain model. Read `CONTEXT.md` (the domain glossary, currently a
-DRAFT), `docs/design/open-questions.md`, and the ADRs in `docs/adr/` before working in an area.
+deliberately different domain model. Read `CONTEXT.md` (the domain glossary) and the ADRs in
+`docs/adr/` before working in an area.
 
-**Status: design phase.** Domain decisions are being made before code. Don't build app code
-until the relevant open question has an ADR.
+**Status: domain settled, no code yet.** The model was grilled and recorded as ADR-0001 to 0016
+before any code. Build in vertical slices from here; a change to the model is a new superseding
+ADR, never an edit to an accepted one.
 
 ## Working conventions
 
