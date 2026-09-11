@@ -16,7 +16,7 @@ ADR in `docs/adr/` and firm up a term in `CONTEXT.md`.
    plyo box). Possibly both, with a parameter *type* (continuous / discrete ladder).
 3. **Where does bodyweight contribution come from?**
    - Per-node constants from the literature (e.g. push-up variants have published % of BW figures
-     from force-plate studies — to be verified before seeding).
+     from force-plate studies, to be verified before seeding).
    - A formula of the parameter for incline / decline work (angle → fraction).
    - User-tunable override, because leverage varies with limb length and technique.
    - Which nodes have *no* sensible figure at all (a front-lever hold?) and just rank ordinally.
@@ -29,7 +29,7 @@ ADR in `docs/adr/` and firm up a term in `CONTEXT.md`.
 
 6. **What is "progress"?** Candidate axes: reps/hold at a node, parameter, chain step, external
    load, and effective load as the unifier. Do we (a) pick a primary axis per node (reps until a
-   ceiling, then step the parameter, then step the node — a multi-level double progression),
+   ceiling, then step the parameter, then step the node, a multi-level double progression),
    (b) judge only on effective load × volume, or (c) show the axes and let the human judge?
 7. **What does the ghost / target look like?** When you step up a node, the history on the
    previous node is the only reference. How does the app turn "3×12 at floor" into a suggestion
@@ -37,7 +37,7 @@ ADR in `docs/adr/` and firm up a term in `CONTEXT.md`.
 8. **Bodyweight change.** If bodyweight drops 3 kg, the same reps at the same node are *less*
    effective load. Is that a regression? A readout? Ignored for targets and shown only as a trend?
 9. **Regressing on purpose.** How do we make a deliberate step down (deload, volume day) not read
-   as failure — a flag on the performance, or just no judgement at all?
+   as failure: a flag on the performance, or just no judgement at all?
 
 ## Program structure
 
@@ -49,9 +49,9 @@ ADR in `docs/adr/` and firm up a term in `CONTEXT.md`.
 
 ## Later
 
-12. **Loaded calisthenics** — dip belt, vest, backpack: kit tags like the sibling's equipment, or
+12. **Loaded calisthenics**: dip belt, vest, backpack: kit tags like the sibling's equipment, or
     just an external-load number?
-13. **Assistance kit** — band assistance as negative load: does the band-tier → kg table from the
+13. **Assistance kit**: band assistance as negative load: does the band-tier → kg table from the
     sibling transfer?
 14. **Sharing a codebase with the sibling.** Any modules worth extracting (helpers, Drive backup,
     the test harness) or keep them fully separate?

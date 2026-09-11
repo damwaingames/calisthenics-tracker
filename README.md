@@ -28,30 +28,30 @@ number you can dial up in small steps. Bodyweight training breaks that model in 
 2. **The load is your own bodyweight, scaled by leverage.**
    The "weight" you move on an incline push-up depends on the height of the incline; on a
    floor push-up it's roughly two-thirds of bodyweight; on a decline it's more. The tracker
-   should understand each node's **bodyweight contribution** — as a constant for a fixed
-   variation, or as a function of a **parameter** (incline height / angle, band assistance,
-   lever length) for a continuous one — and combine it with your measured bodyweight into an
+   should understand each node's **bodyweight contribution**, a constant for a fixed
+   variation or a function of a **parameter** (incline height / angle, band assistance,
+   lever length) for a continuous one, and combine it with your measured bodyweight into an
    **effective load**. That is what lets progress be compared across nodes on a chain, and what
    makes "you got heavier / lighter" a visible part of the picture rather than noise.
 
 3. **External load arrives late and adds on top.**
-   Eventually the chain reaches loaded work — a **dip belt**, a **weight vest**, a backpack. That
+   Eventually the chain reaches loaded work: a **dip belt**, a **weight vest**, a backpack. That
    is just more effective load (bodyweight contribution + external kg), and **assistance** (a
    band, a foot on the floor, a partner) is negative load on the same axis. One axis, both signs.
 
 So progressive overload here is **multi-axis**: reps or hold time at a node, the node's parameter
-(higher/lower, longer lever), position on the chain, external load, and — as a background input —
+(higher/lower, longer lever), position on the chain, external load, and, as a background input,
 your own bodyweight. Which axis "counts" as progress, and how the app suggests the next step, is
 the core design question and is being discussed before it's modelled.
 
 ## What's carried over from the sibling (assumed, open to change)
 
-- **Engineering style** — plain ES modules, no build step, `localStorage`, installable PWA, deployed
+- **Engineering style**: plain ES modules, no build step, `localStorage`, installable PWA, deployed
   to GitHub Pages on merge to `main`, a manual semver `APP_VERSION` in the footer.
-- **Documentation discipline** — a `CONTEXT.md` ubiquitous-language glossary, decisions as ADRs in
+- **Documentation discipline**: a `CONTEXT.md` ubiquitous-language glossary, decisions as ADRs in
   `docs/adr/`, issues + specs as GitHub issues (`docs/agents/`).
-- **Testing** — an end-to-end Playwright harness in `tests/` driving the real DOM.
-- **A few domain ideas that transfer** — an exercise *owns its history* (the container never does);
+- **Testing**: an end-to-end Playwright harness in `tests/` driving the real DOM.
+- **A few domain ideas that transfer**: an exercise *owns its history* (the container never does);
   measured bodyweight lives outside the training plan; tonnage-style figures are readouts, never
   the judge of progress.
 

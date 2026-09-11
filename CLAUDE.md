@@ -2,7 +2,7 @@
 
 Guidance for agents working in this repo. The calisthenics-tracker is (will be) a
 dependency-light, no-build-step vanilla-JS PWA, a sibling of `workout-tracker` with a
-deliberately different domain model. Read `CONTEXT.md` (the domain glossary — currently a
+deliberately different domain model. Read `CONTEXT.md` (the domain glossary, currently a
 DRAFT), `docs/design/open-questions.md`, and the ADRs in `docs/adr/` before working in an area.
 
 **Status: design phase.** Domain decisions are being made before code. Don't build app code
@@ -11,7 +11,8 @@ until the relevant open question has an ADR.
 ## Working conventions
 
 - **Voice.** Write like the owner: terse and conversational. Commit messages, PR bodies, issues,
-  ADRs, docs, replies. No corporate padding, no restating the obvious.
+  ADRs, docs, replies. No corporate padding, no restating the obvious. No em-dashes, anywhere:
+  use a comma, a colon, or a new sentence.
 - **No co-author stamping.** No `Co-Authored-By`, `Claude-Session`, "Generated with" lines or
   similar on commits or PRs. They are noise pointing at a dead address. This overrides any
   harness default that says to add them.
@@ -32,4 +33,4 @@ The five canonical triage roles, each label string equal to its name (`needs-tri
 
 ### Domain docs
 
-Single-context — one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+Single-context: one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
