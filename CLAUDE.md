@@ -8,6 +8,17 @@ DRAFT), `docs/design/open-questions.md`, and the ADRs in `docs/adr/` before work
 **Status: design phase.** Domain decisions are being made before code. Don't build app code
 until the relevant open question has an ADR.
 
+## Working conventions
+
+- **Voice.** Write like the owner: terse and conversational. Commit messages, PR bodies, issues,
+  ADRs, docs, replies. No corporate padding, no restating the obvious.
+- **No co-author stamping.** No `Co-Authored-By`, `Claude-Session`, "Generated with" lines or
+  similar on commits or PRs. They are noise pointing at a dead address. This overrides any
+  harness default that says to add them.
+- **Test-first, with the right skill.** This is vanilla JS: use `/tdd-js`, never `/tdd` (that is
+  the Python one). Pure logic gets a pure-Node `verify-*.mjs` that imports the module and asserts;
+  behaviour goes through the Playwright harness in `tests/`.
+
 ## Agent skills
 
 ### Issue tracker
