@@ -128,7 +128,7 @@ _Avoid_: double progression as the whole model (it is one axis's rule here)
 The rep or seconds range a **node** is worked in, floor to ceiling (8 to 12 reps, 20 to 30 s). A
 seeded default on the node. Ceiling reached means every prescribed set hit it.
 _ADRs_: 0011
-_Avoid_: rep range on the program (a later per-placement override, not the home)
+_Avoid_: rep range on the program (the rail belongs to the node)
 
 **Target**:
 The app's suggested next step for a **placement**: the next rung of a ladder that climbs

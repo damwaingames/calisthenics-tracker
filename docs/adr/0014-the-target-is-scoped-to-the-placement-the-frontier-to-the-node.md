@@ -5,7 +5,6 @@ ladder (ADR-0011) starts there at the rail's floor and climbs from what is logge
 placement. The node keeps the frontier and the full history as a readout beside it, and the
 chain's frontier stays wherever it was. This is what makes regressing on purpose free: a
 placement lower down the chain is taken at face value, with no flag and no "you were at floor"
-nag. A new program restarts every placement at the floor; seeding a placement from the node's
-last performance is a later nicety, not a change to this. We rejected a node-scoped target
+nag. A new program restarts every placement at the floor. We rejected a node-scoped target
 because after a layoff it would propose the node you had just chosen to step down from. The
 sibling reached the same shape (its ADR-0021, a per-placement rail).

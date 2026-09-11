@@ -7,5 +7,4 @@ inside that. A deload week is fewer sets with targets frozen and the ladder paus
 none of the gates. This is what gives a new block its feel-your-way start (week 1 is 2 sets
 whatever last block reached) and gives periodisation and deloads from one concept. We rejected
 earning sets as a rung of the ladder because it makes the ladder four deep and collides with the
-two-session node gate (ADR-0012); a program type where sets are genuinely earned (a beginner
-program) is a later enhancement, not this model.
+two-session node gate (ADR-0012).
