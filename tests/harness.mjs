@@ -1,6 +1,6 @@
-/* Shared scaffold for the verify-*.mjs scripts. Owns the whole lifecycle ,
- * browser launch, console/pageerror capture, the check tally, and the pass/fail
- * exit, so each script is reduced to only its unique assertions.
+/* Shared scaffold for the browser verify-*.mjs scripts. Owns the whole lifecycle:
+ * browser launch, console/pageerror capture, and the pass/fail exit (the tally itself is
+ * tally.mjs, shared with the pure-Node scripts), so each script is reduced to its assertions.
  *
  * Each script stays standalone: verify() does its own launch + process.exit, so
  * `CT_URL=<live deploy> node verify-version.mjs` still works, and the runner
@@ -9,18 +9,15 @@
 
 import { chromium } from "playwright";
 import { STORAGE_KEY } from "../constants.js";
+import { ck, finish } from "./tally.mjs";
 
 const url = process.env.CT_URL || "http://127.0.0.1:8765/";
 
 export async function verify(run) {
   const errors = [];
-  const checks = [];
-  const ck = (label, cond) => { checks.push(!!cond); console.log((cond ? "ok  " : "FAIL") + "  " + label); };
 
   const browser = await chromium.launch();
-  // Block the service worker: it would otherwise intercept network requests (defeating
-  // page.route mocks) and serve stale cached assets across the reloads tests do. The app
-  // degrades cleanly without it (the SW is offline progressive-enhancement only).
+  // Block the service worker so reloads never hit a stale cache.
   const context = await browser.newContext({ serviceWorkers: "block" });
   const page = await context.newPage();
   // A test can declare expected console errors (e.g. the browser logs net::ERR_FAILED for
@@ -52,9 +49,5 @@ export async function verify(run) {
     await browser.close();
   }
 
-  const failed = checks.filter((ok) => !ok).length;
-  if (errors.length) console.log("\nERRORS:\n" + errors.join("\n"));
-  const ok = failed === 0 && errors.length === 0;
-  console.log("\n" + (ok ? "PASS" : `FAIL (${failed} checks, ${errors.length} errors)`));
-  process.exit(ok ? 0 : 1);
+  finish(errors);
 }
