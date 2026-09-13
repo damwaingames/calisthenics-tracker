@@ -1,5 +1,5 @@
 import { verify } from "./harness.mjs";
-import { patterns, chainsOf, nodesOf, regressionOf, progressionOf } from "../catalogue.js";
+import { PATTERNS, chainsOf, regressionOf, progressionOf } from "../catalogue.js";
 
 /* The chain browser (#7): every seeded chain renders under its pattern with its nodes in order,
  * and each node row names its regression and progression. The expectations are read from the
@@ -7,7 +7,7 @@ import { patterns, chainsOf, nodesOf, regressionOf, progressionOf } from "../cat
 verify(async ({ page, ck, reset }) => {
   await reset();
 
-  for (const p of patterns()) {
+  for (const p of PATTERNS) {
     const heading = await page.textContent(`[data-mark-pattern="${p.id}"] h2`);
     ck(`pattern "${p.name}" has a heading`, heading?.trim() === p.name);
     for (const c of chainsOf(p.id)) {

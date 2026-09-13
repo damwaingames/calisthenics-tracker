@@ -3,7 +3,7 @@
  * (`node verify-catalogue.mjs`) or via run.mjs; it never launches Playwright. */
 
 import {
-  chainOf, regressionOf, progressionOf, nodesOf, patterns, chains, nodes,
+  chainOf, regressionOf, progressionOf, nodesOf, PATTERNS, CHAINS, NODES,
 } from "../catalogue.js";
 import { ck, finish } from "./tally.mjs";
 
@@ -20,12 +20,12 @@ ck("nodes of the push-up chain come back in order",
 
 // ---- Seed invariants ----
 const chainCount = {};
-for (const c of chains()) for (const id of c.nodes) chainCount[id] = (chainCount[id] || 0) + 1;
-const allNodes = nodes();
+for (const c of CHAINS) for (const id of c.nodes) chainCount[id] = (chainCount[id] || 0) + 1;
+const allNodes = NODES;
 ck("every node belongs to exactly one chain",
   allNodes.every((n) => chainCount[n.id] === 1)
     && Object.keys(chainCount).length === allNodes.length);
-const patternIds = new Set(patterns().map((p) => p.id));
-ck("every chain's pattern exists", chains().every((c) => patternIds.has(c.pattern)));
+const patternIds = new Set(PATTERNS.map((p) => p.id));
+ck("every chain's pattern exists", CHAINS.every((c) => patternIds.has(c.pattern)));
 
 finish();

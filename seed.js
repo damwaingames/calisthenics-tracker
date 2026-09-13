@@ -19,7 +19,7 @@ export const CHAINS = [
 ];
 
 const RAIL = { floor: 8, ceiling: 12 };
-const reps = (id, name, cue) => ({ id, name, volumeTypes: ["reps"], rail: RAIL, cue });
+const reps = (id, name, cue) => ({ id, name, volumeTypes: ["reps"], rail: { ...RAIL }, cue });
 
 export const NODES = [
   reps("wall-push-up", "Wall push-up",

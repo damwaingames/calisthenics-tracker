@@ -2,7 +2,7 @@
  * Elements a test or handler must find carry a valueless or id-valued data-mark-* attribute,
  * never a CSS class (classes are for styling only). */
 
-import { patterns, chainsOf, nodesOf, regressionOf, progressionOf } from "./catalogue.js";
+import { PATTERNS, chainsOf, nodesOf, regressionOf, progressionOf } from "./catalogue.js";
 
 const ESC = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" };
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ESC[c]);
@@ -25,8 +25,8 @@ function chainCard(c) {
   </div>`;
 }
 
-export function renderBrowser() {
-  return patterns().map((p) => `<section class="card" data-mark-pattern="${esc(p.id)}">
+function renderBrowser() {
+  return PATTERNS.map((p) => `<section class="card" data-mark-pattern="${esc(p.id)}">
     <h2>${esc(p.name)}</h2>
     ${chainsOf(p.id).map(chainCard).join("")}
   </section>`).join("");
