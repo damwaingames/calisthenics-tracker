@@ -4,7 +4,6 @@
 
 let pass = 0, fail = 0;
 export const ck = (label, cond) => { (cond ? pass++ : fail++); console.log((cond ? "ok  " : "FAIL") + "  " + label); };
-export const failed = () => fail;
 export function finish(errors = []) {
   if (errors.length) console.log("\nERRORS:\n" + errors.join("\n"));
   const ok = fail === 0 && errors.length === 0;
