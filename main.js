@@ -3,6 +3,8 @@
 
 import { APP_VERSION } from "./constants.js";
 import { load } from "./store.js";
+import { render } from "./render.js";
 
 load();
+render();
 document.getElementById("version-tag").textContent = "v" + APP_VERSION;
