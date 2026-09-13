@@ -5,13 +5,18 @@
  * so a plain-Node test can drive normalise directly. */
 
 import { STORAGE_KEY, SCHEMA_VERSION } from "./constants.js";
+import { logPerformance } from "./history.js";
 
 export function defaultState() {
-  return { version: SCHEMA_VERSION };
+  return { version: SCHEMA_VERSION, history: {}, ui: {} };
 }
 
+// Bring a saved store to a well-formed shape. Keys a later release added are backfilled here
+// without a version bump (additive); a breaking change is what bumps SCHEMA_VERSION.
 export function normalise(s) {
   if (!s || typeof s !== "object" || s.version !== SCHEMA_VERSION) return defaultState();
+  if (!s.history || typeof s.history !== "object") s.history = {};
+  if (!s.ui || typeof s.ui !== "object") s.ui = {};
   return s;
 }
 
@@ -29,3 +34,14 @@ export function load() {
   save();
 }
 export function save() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+
+/* ---- Store-level actions: apply a pure module function, then persist ---- */
+
+export function addPerformance(perf) {
+  setState({ ...state, history: logPerformance(state.history, perf) });
+  save();
+}
+export function setUi(patch) {
+  setState({ ...state, ui: { ...state.ui, ...patch } });
+  save();
+}

@@ -5,7 +5,7 @@
 import { PATTERNS, CHAINS, NODES } from "./seed.js";
 export { PATTERNS, CHAINS, NODES } from "./seed.js";
 
-const nodeById = Object.fromEntries(NODES.map((n) => [n.id, n]));
+export const nodeById = Object.fromEntries(NODES.map((n) => [n.id, n]));
 const chainByNode = {};
 for (const c of CHAINS) for (const id of c.nodes) chainByNode[id] = c;
 
