@@ -3,10 +3,10 @@
 Two seams, as in the sibling app:
 
 - **Pure Node** `verify-*.mjs` that import a domain module and assert on plain data. No browser.
-  `verify-store`, `verify-catalogue`.
+  `verify-store`, `verify-catalogue`, `verify-history`.
 - **Playwright** `verify-*.mjs` that drive the real DOM through `harness.mjs` and fail on any
   `console.error` or `pageerror`. `verify-boot`, `verify-version`, `verify-darkmode`,
-  `verify-browser` so far.
+  `verify-browser`, `verify-logging` so far.
 
 `tally.mjs` is the shared check tally (`ck`, `finish`); a pure-Node script is imports plus
 assertions plus `finish()`, and the harness wraps the same tally around a browser.

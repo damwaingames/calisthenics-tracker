@@ -22,4 +22,12 @@ for (const [label, input] of unloadable) {
 const current = { version: SCHEMA_VERSION, keep: "me" };
 ck("a current store round-trips with its fields intact", normalise(current).keep === "me");
 
+// ---- Backfill: a current store lacking a later-added key gets it ----
+ck("a current store without history gets an empty one",
+  typeof normalise({ version: SCHEMA_VERSION }).history === "object");
+const kept = normalise({
+  version: SCHEMA_VERSION, history: { "floor-push-up": [{ date: "2026-09-10" }] },
+});
+ck("a current store's history is kept", kept.history["floor-push-up"].length === 1);
+
 finish();

@@ -58,7 +58,10 @@ header {
   padding-top: 1rem;
   border-bottom: 1px solid var(--border);
 }
-.topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-bottom: .75rem; }
+.topbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  flex-wrap: wrap; padding-bottom: .75rem;
+}
 h1 { font-size: 1.2rem; margin: 0; }
 
 .card {
@@ -85,3 +88,27 @@ h3 { font-size: .95rem; margin: .75rem 0 .25rem; color: var(--muted); font-weigh
   padding: .45rem 0; border-top: 1px solid var(--border);
 }
 .node-neighbours { display: flex; gap: .75rem; }
+
+button {
+  font: inherit; color: var(--text); background: var(--control);
+  border: 1px solid var(--border-strong); border-radius: 8px;
+  padding: .4rem .75rem; cursor: pointer;
+}
+button.ghost {
+  background: transparent; border-color: transparent; color: var(--muted); padding-left: 0;
+}
+button.link {
+  background: none; border: 0; padding: 0; color: var(--text); font-weight: 600; text-align: left;
+}
+input {
+  font: inherit; color: var(--text); background: var(--control);
+  border: 1px solid var(--border-strong); border-radius: 8px; padding: .35rem .5rem;
+}
+.log-form { display: flex; gap: .75rem; align-items: end; flex-wrap: wrap; margin: .75rem 0; }
+.log-form label {
+  display: flex; flex-direction: column; gap: .2rem; font-size: .85rem; color: var(--muted);
+}
+.history { list-style: none; margin: .5rem 0 0; padding: 0; }
+.history li {
+  padding: .4rem 0; border-top: 1px solid var(--border); font-variant-numeric: tabular-nums;
+}
