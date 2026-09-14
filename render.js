@@ -38,7 +38,7 @@ function renderBrowser() {
   </section>`).join("");
 }
 
-const volumeText = (v) => v.type === "reps" ? `${v.value} reps` : `${v.value} s`;
+const volumeText = (v) => `${v.value} reps`;
 
 function renderNode(n) {
   const perfs = performancesOf(state.history, n.id);

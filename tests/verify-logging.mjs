@@ -1,11 +1,12 @@
 import { verify } from "./harness.mjs";
+import { ACTION } from "../actions.js";
 
 /* Logging (#8): tap a node in the browser to open its view, log a rep performance dated by hand,
  * see it in the node's history newest first, and find it still there after a reload. */
 verify(async ({ page, ck, reset }) => {
   await reset();
 
-  await page.click('[data-mark-node="floor-push-up"] [data-action="open-node"]');
+  await page.click(`[data-mark-node="floor-push-up"] [data-action="${ACTION.openNode}"]`);
   ck("tapping a node opens its view",
     await page.isVisible('[data-mark-node-view="floor-push-up"]'));
 
@@ -32,6 +33,6 @@ verify(async ({ page, ck, reset }) => {
   ck("the history survives a reload",
     list.length === 2 && /8 reps/.test(list[0]) && /10 reps/.test(list[1]));
 
-  await page.click('[data-action="back"]');
+  await page.click(`[data-action="${ACTION.back}"]`);
   ck("back returns to the chain browser", await page.isVisible('[data-mark-chain="push-up"]'));
 });

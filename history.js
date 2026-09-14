@@ -8,10 +8,8 @@ export function logPerformance(history, perf) {
   return { ...history, [perf.node]: [...list, perf] };
 }
 
-// Newest first; a tie on date is broken by most recently logged first.
+// Newest first; a tie on date is broken by most recently logged first. The list is in logged
+// order and sort is stable, so reverse then sort by date gives the tie-break for free.
 export function performancesOf(history, nodeId) {
-  const list = history[nodeId] || [];
-  return list.map((p, i) => [p, i])
-    .sort((a, b) => (a[0].date < b[0].date ? 1 : a[0].date > b[0].date ? -1 : b[1] - a[1]))
-    .map(([p]) => p);
+  return [...(history[nodeId] || [])].reverse().sort((a, b) => b.date.localeCompare(a.date));
 }
